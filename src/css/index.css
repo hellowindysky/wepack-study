@@ -6,4 +6,6 @@ body {
   background-image: url('../images/2.jpg');
   width: 500px;
   height: 500px;
+  transform: rotate(45deg);
+  box-shadow: 10px 10px 0 #000000;
 }
