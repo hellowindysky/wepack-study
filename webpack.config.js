@@ -98,6 +98,10 @@ module.exports = {
   plugins: [
     // new uglify()
     // new webpack.optimize.UglifyJsPlugin(),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
+    }),
     new htmlPlugin({
       minify: {
         removeAttributeQuotes: true
