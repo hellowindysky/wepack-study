@@ -113,7 +113,12 @@ module.exports = {
     new purifyCssPlugin({
       paths: glob.sync(path.join(__dirname, 'src/*.html'))
     }),
-    new webpack.BannerPlugin('zhangquan')
+    new webpack.BannerPlugin('zhangquan'),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: ['jquery', 'vue'],
+      filename: 'assets/js/[name].js',
+      minChunks: 2
+    })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server --open",
-    "buildbeta": "set type=buildbeta&webpack --watch",
+    "buildbeta": "set type=buildbeta&webpack",
     "build": "set type=build&webpack --watch"
   },
   "author": "zhang",
@@ -34,6 +34,7 @@
     "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "vue": "^2.5.16"
   }
 }
