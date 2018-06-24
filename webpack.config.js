@@ -123,7 +123,8 @@ module.exports = {
     new copyWebpackPlugin([{
       from: __dirname + '/src/public',
       to: './public'
-    }])
+    }]),
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
