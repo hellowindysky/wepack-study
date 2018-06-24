@@ -112,12 +112,18 @@ module.exports = {
     new extractTextPlugin('css/index.css'),
     new purifyCssPlugin({
       paths: glob.sync(path.join(__dirname, 'src/*.html'))
-    })
+    }),
+    new webpack.BannerPlugin('zhangquan')
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
     host: '192.168.1.106',
     compress: true,
     port: 1717
+  },
+  watchOptions: {
+    poll: 1000,
+    aggregateTimeout: 300,
+    ignored: /node_modules/
   }
 }
