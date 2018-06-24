@@ -5,6 +5,7 @@ const webpack = require('webpack'); //访问内置的插件
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifyCssPlugin = require('purifycss-webpack');
+const entry = require('./webpack_config/entry_webpack.js');
 
 /*这节课我不懂的一个问题，我不自己手动打包，我直接运行npm run server在浏览器，
   下面的条件判断是成立不了的*/
@@ -25,10 +26,7 @@ console.log(encodeURIComponent(process.env.type));
 
 module.exports = {
   devtool: 'source-map',
-  entry: {
-    entry: './src/entry.js',
-    entry2: './src/entry2.js',
-  },
+  entry: entry.path,
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
