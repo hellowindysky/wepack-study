@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server --open",
-    "build": "webpack"
+    "buildbeta": "set type=buildbeta&webpack",
+    "build": "set type=build&webpack"
   },
   "author": "zhang",
   "license": "ISC",
@@ -31,5 +32,8 @@
     "url-loader": "^1.0.1",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }

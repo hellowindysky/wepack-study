@@ -6,9 +6,22 @@ const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifyCssPlugin = require('purifycss-webpack');
 
+/*这节课我不懂的一个问题，我不自己手动打包，我直接运行npm run server在浏览器，
+  下面的条件判断是成立不了的*/
 var website = {
   publicPath: 'http://192.168.1.106:1717/'
 };
+
+if (process.env.type === 'build') {
+  var website = {
+    publicPath: 'http://jspang.com:1717/'
+  };
+} else if (process.env.type === 'buildbeta') {
+  var website = {
+    publicPath: 'http://192.168.1.106:1717/'
+  };
+}
+console.log(encodeURIComponent(process.env.type));
 
 module.exports = {
   devtool: 'source-map',
