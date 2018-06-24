@@ -6,6 +6,7 @@ const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const purifyCssPlugin = require('purifycss-webpack');
 const entry = require('./webpack_config/entry_webpack.js');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 /*这节课我不懂的一个问题，我不自己手动打包，我直接运行npm run server在浏览器，
   下面的条件判断是成立不了的*/
@@ -118,7 +119,11 @@ module.exports = {
       name: ['jquery', 'vue'],
       filename: 'assets/js/[name].js',
       minChunks: 2
-    })
+    }),
+    new copyWebpackPlugin([{
+      from: __dirname + '/src/public',
+      to: './public'
+    }])
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
