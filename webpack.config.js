@@ -11,6 +11,7 @@ var website = {
 };
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     entry: './src/entry.js',
     entry2: './src/entry2.js',
