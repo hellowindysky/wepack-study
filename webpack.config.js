@@ -1,8 +1,10 @@
 const path = require('path');
+const glob = require('glob');
 // const uglify = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack'); //访问内置的插件
 const htmlPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
+const purifyCssPlugin = require('purifycss-webpack');
 
 var website = {
   publicPath: 'http://192.168.1.106:1717/'
@@ -84,7 +86,10 @@ module.exports = {
       hash: true,
       template: './src/index.html'
     }),
-    new extractTextPlugin('css/index.css')
+    new extractTextPlugin('css/index.css'),
+    new purifyCssPlugin({
+      paths: glob.sync(path.join(__dirname, 'src/*.html'))
+    })
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
